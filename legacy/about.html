@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iKOREX | About Us</title>
+  <meta name="description"
+    content="Meet iKOREX: a Melbourne team of automation engineers and Chartered Accountants, founded in 2024 to take manual work off operations teams.">
+  <link rel="canonical" href="https://ikorex.com.au/about">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ikorex.com.au/about">
+  <meta property="og:title" content="iKOREX | About Us">
+  <meta property="og:description" content="Meet iKOREX: a Melbourne team of automation engineers and Chartered Accountants, founded in 2024 to take manual work off operations teams.">
+  <meta property="og:image" content="https://ikorex.com.au/logo.png">
+  <meta property="og:site_name" content="iKOREX">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@ikorex_official">
+
+  <!-- Inter Tight & Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;800&family=Inter+Tight:ital,wght@0,300..800;1,300..800&display=swap"
+    rel="stylesheet">
+
+  <!-- Global Stylesheet -->
+  <link rel="stylesheet" href="style.css?v=6">
+  <!-- Favicon & Google Search Icon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+</head>
+
+<body class="antialiased">
+  <script>
+    (function () {
+      try {
+        const theme = localStorage.getItem('theme');
+        if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.body.classList.add('dark-theme');
+        }
+      } catch (e) { }
+    })();
+  </script>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="navbar-container">
+      <a href="index.html" class="logo">
+        <img class="logo-img" src="logo.png" alt="iKOREX Logo">
+      </a>
+
+      <!-- Nav Links -->
+      <nav class="nav-links" id="primaryNav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="solutions.html">Solutions</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html" class="active">About</a>
+        <a href="contact.html">Contact</a>
+        <div class="mobile-cta">
+          <a href="contact.html" class="btn btn-primary btn-sm">Book a Consultation</a>
+        </div>
+      </nav>
+
+      <!-- Right CTA & Theme Toggle -->
+      <div class="nav-cta">
+        <div class="live-clock-badge" id="navMelbourneBadge" title="Live Melbourne HQ local time & system status">
+          <span class="live-pulse-dot"></span>
+          <span class="clock-label">Melbourne:</span>
+          <span class="clock-time melbourne-live-clock">--:-- AEST</span>
+        </div>
+        <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle theme">
+          <svg class="sun-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        <a href="contact.html" class="btn btn-primary btn-sm">Book a Consultation</a>
+      </div>
+
+      <!-- Mobile menu trigger -->
+      <button class="mobile-menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav" id="mobileMenuBtn">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- About Hero: story, trust signals and founders in the first screen -->
+  <section class="page-hero about-hero">
+    <div class="section-container about-hero-grid">
+      <div class="about-hero-copy">
+        <div class="custom-badge">
+          <span class="badge-icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" class="badge-svg" aria-hidden="true">
+              <path d="M3 3 L21 12 L8 12 L3 9 Z" fill="#00a2ff" />
+              <path d="M3 21 L21 12 L8 12 L3 15 Z" fill="#0062d6" />
+            </svg>
+          </span>
+          <span class="badge-text">Est. 2024 &middot; Melbourne, VIC</span>
+        </div>
+        <h1 class="page-title">Built by operators,<br><span class="text-gradient">for operators.</span></h1>
+        <p class="page-lead">iKOREX started with a simple observation: the businesses losing the most money to
+          inefficiency weren't lacking effort, they were lacking systems. We build automation that runs itself, so
+          operations teams get their time back.</p>
+
+        <ul class="trust-stats">
+          <li class="trust-stat">
+            <strong>20+ yrs</strong>
+            <span>process engineering leadership</span>
+          </li>
+          <li class="trust-stat">
+            <strong>3 CAs</strong>
+            <span>Chartered Accountants on the team</span>
+          </li>
+          <li class="trust-stat">
+            <strong>Australia-wide</strong>
+            <span>Melbourne team, clients across the country</span>
+          </li>
+        </ul>
+
+        <div class="hero-actions">
+          <a href="contact.html" class="btn btn-primary">Book a Consultation</a>
+          <a href="#team" class="btn btn-outline">Meet the team</a>
+        </div>
+      </div>
+
+      <aside class="founders-panel" aria-label="Founders">
+        <div class="founders-panel-head">
+          <span class="panel-label">Founders</span>
+          <span class="panel-meta"><span class="live-dot"></span>Hands-on in every engagement</span>
+        </div>
+        <div class="founders-grid">
+          <div class="founder-card">
+            <div class="founder-img-wrapper">
+              <img src="assets/images/Team/yesudas_sebastian.webp" alt="Yesudas Sebastian" class="founder-img">
+            </div>
+            <div class="founder-card-info">
+              <div class="founder-card-name">Yesudas Sebastian</div>
+              <div class="founder-card-role">Co-Founder &amp; CEO</div>
+              <div class="founder-card-meta">B.Tech in Engineering. 20+ years of global experience in process
+                improvement.</div>
+            </div>
+          </div>
+          <div class="founder-card">
+            <div class="founder-img-wrapper">
+              <img src="assets/images/Team/subin_peter.webp" alt="Subin Peter" class="founder-img">
+            </div>
+            <div class="founder-card-info">
+              <div class="founder-card-name">Subin Peter</div>
+              <div class="founder-card-role">Co-Founder &amp; COO</div>
+              <div class="founder-card-meta">Leads operations and client delivery. Enterprise workflow architect.
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Story & Values -->
+  <section class="about-story">
+    <div class="section-container about-story-grid">
+      <div class="about-story-copy">
+        <h2 class="section-title">One problem solved well, then the next.</h2>
+        <p>Founded in 2024 by Yesudas Sebastian and Subin Peter, iKOREX began by bringing robotic process automation
+          and WhatsApp-based workflows to Order-to-Cash and Procure-to-Pay operations that were bleeding time and money
+          to manual processing.</p>
+        <p>That focus earned trust across industries, and it still shapes how we build today. Invoices chased by hand,
+          approvals stuck in email threads, good people spending their week on work a machine should be doing: that is
+          the work we take off your team's plate.</p>
+      </div>
+
+      <div class="values-list">
+        <div class="value-row">
+          <div class="value-icon-box">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <div>
+            <h3 class="value-card-title">Built for reliability</h3>
+            <p class="value-card-desc">Automation that runs without babysitting: accurate, auditable, and dependable
+              for the processes you can't afford to get wrong.</p>
+          </div>
+        </div>
+        <div class="value-row">
+          <div class="value-icon-box">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+          <div>
+            <h3 class="value-card-title">Partners, not vendors</h3>
+            <p class="value-card-desc">Every engagement starts with understanding how you actually operate, not with
+              selling a template.</p>
+          </div>
+        </div>
+        <div class="value-row">
+          <div class="value-icon-box">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+          </div>
+          <div>
+            <h3 class="value-card-title">Engineered to scale</h3>
+            <p class="value-card-desc">What we build for one process extends cleanly to the next, so automation
+              compounds instead of becoming another system to maintain.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="about-team" id="team">
+    <div class="section-container">
+      <div class="section-head">
+        <h2 class="section-title">The specialists behind the automation</h2>
+        <p class="section-subtitle">Automation engineers and Chartered Accountants who design and build the workflows
+          we deliver.</p>
+      </div>
+
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar team-avatar-initials" aria-hidden="true">JJ</div>
+          <div class="team-card-body">
+            <h3 class="team-profile-name">Justin John</h3>
+            <div class="team-profile-role">Head of RPA Engineering</div>
+            <p class="team-profile-bio">Architects robust automation systems and cognitive bot networks.</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <img class="team-avatar" src="assets/images/Team/team_2.webp" alt="Allen Jose" loading="lazy">
+          <div class="team-card-body">
+            <h3 class="team-profile-name">Allen Jose</h3>
+            <div class="team-profile-role">Process Automation Lead <span class="credential">CA</span></div>
+            <p class="team-profile-bio">Audit and process analysis specialist who designs AI-driven automation to
+              streamline processes and strengthen financial controls.</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <img class="team-avatar" src="assets/images/Team/team_3.webp" alt="Rueben Jose" loading="lazy">
+          <div class="team-card-body">
+            <h3 class="team-profile-name">Rueben Jose</h3>
+            <div class="team-profile-role">Financial Automation Specialist <span class="credential">CA</span></div>
+            <p class="team-profile-bio">8+ years in financial audit and planning across technology, manufacturing,
+              banking, agriculture, and healthcare.</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <img class="team-avatar" src="assets/images/Team/team_1.webp" alt="Alen T Jose" loading="lazy">
+          <div class="team-card-body">
+            <h3 class="team-profile-name">Alen T Jose</h3>
+            <div class="team-profile-role">Business Automation Specialist <span class="credential">CA</span></div>
+            <p class="team-profile-bio">6+ years in bookkeeping, audit, and business consultancy across finance,
+              medical, hospitality, retail, and shipbuilding.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Security & Governance Section -->
+  <section class="security-section" id="security" style="padding: 90px 0; background: var(--bg-secondary);">
+    <div class="section-container">
+      <div class="section-head center">
+        <div class="custom-badge">
+          <span class="badge-icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" class="badge-svg" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="#00a2ff" />
+            </svg>
+          </span>
+          <span class="badge-text">Trust &amp; Compliance</span>
+        </div>
+        <h2 class="section-title">Security, Reliability &amp; <span class="text-gradient">Responsible AI</span></h2>
+        <p class="section-subtitle">How we protect your business data, guarantee auditability, and uphold Australian privacy standards.</p>
+      </div>
+
+      <div class="home-services-grid" style="margin-top: 40px;">
+        <div class="home-service-card">
+          <div class="home-service-icon-box">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <h3>Australian Privacy Alignment</h3>
+          <p>Built strictly in compliance with the Australian Privacy Principles (APP). Our AI camera security models perform zero facial recognition—processing motion and posture anonymously to prevent retail loss while protecting consumer privacy.</p>
+        </div>
+
+        <div class="home-service-card">
+          <div class="home-service-icon-box">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          </div>
+          <h3>Role-Based Encryption</h3>
+          <p>All sensitive credentials and data in transit are guarded by TLS 1.3 encryption, and data at rest is protected with AES-256. API keys and service connections use least-privilege scoping.</p>
+        </div>
+
+        <div class="home-service-card">
+          <div class="home-service-icon-box">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          </div>
+          <h3>Human-in-the-Loop &amp; Audit Logs</h3>
+          <p>We never treat AI as an unchecked black box. Transactions exceeding tolerance limits route to human decision-makers, and every bot execution creates an immutable audit log timestamp.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section" id="get-started">
+    <div class="section-container">
+      <div class="cta-card">
+        <div class="cta-glow"></div>
+        <div class="cta-content">
+          <h2 class="cta-title">Ready to Automate Your Operations?</h2>
+          <p class="cta-description">Let's build custom workflows that eliminate manual overhead, optimize accuracy, and
+            save hours of work. Schedule a consultation with our experts today.</p>
+          <div class="cta-actions">
+            <a href="contact.html" class="btn btn-primary">Book a Consultation</a>
+            <a href="solutions.html" class="btn btn-secondary">Explore Use Cases</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="contact">
+    <div class="section-container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <img class="logo-img" src="logo.png" alt="iKOREX Logo">
+        </a>
+        <p class="brand-desc">Enterprise-grade intelligent automation for modern businesses. Empowering teams,
+          eliminating manual overhead, and optimizing output.</p>
+        <div class="footer-socials">
+          <a href="https://www.linkedin.com/company/ikorex/" class="social-link" target="_blank"
+            rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </a>
+          <div class="social-divider"></div>
+          <a href="https://x.com/ikorex_official" class="social-link" target="_blank" rel="noopener noreferrer"
+            aria-label="X">
+            <svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor">
+              <path
+                d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z">
+              </path>
+            </svg>
+          </a>
+          <div class="social-divider"></div>
+          <a href="https://www.facebook.com/profile.php?id=61592559665178" class="social-link" target="_blank"
+            rel="noopener noreferrer" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+            </svg>
+          </a>
+          <div class="social-divider"></div>
+          <a href="https://www.instagram.com/ikorex_automation/" class="social-link" target="_blank"
+            rel="noopener noreferrer" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="link-group">
+          <h4>Explore</h4>
+          <a href="services.html">Services</a>
+          <a href="solutions.html">Solutions</a>
+          <a href="blog.html">Blog</a>
+          <a href="about.html">About Us</a>
+        </div>
+        <div class="link-group">
+          <h4>Company</h4>
+          <a href="contact.html">Book a Consultation</a>
+          <a href="contact.html">Contact &amp; Support</a>
+          <a href="privacy.html">Privacy Policy</a>
+        </div>
+        <div class="link-group">
+          <h4>Get in Touch</h4>
+          <div class="contact-item">
+            <span class="footer-label">Address</span>
+            <span>U 1/106 Camms Road,<br>Cranbourne, VIC 3977</span>
+          </div>
+          <div class="contact-item">
+            <span class="footer-label">Email</span>
+            <a href="mailto:sales@ikorex.com.au">sales@ikorex.com.au</a>
+          </div>
+          <div class="contact-item">
+            <span class="footer-label">Phone</span>
+            <a href="tel:1800280626">1800 280 626</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom section-container">
+      <p>Copyright &copy; 2026 iKOREX. iKOREX &ndash; Intelligent Process Automation.</p>
+      <p style="font-size: 0.8rem; opacity: 0.8; letter-spacing: 0.02em;">ABN: 88 676 493 628 &nbsp;|&nbsp; ACN: 676 493
+        628</p>
+      <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 2px;">Designed and developed by <a
+          href="https://www.ornabyte.com" target="_blank" rel="noopener noreferrer"
+          style="color: inherit; text-decoration: underline;">ornabyte</a></p>
+    </div>
+  </footer>
+
+  <!-- Floating Back to Top Button -->
+  <button class="back-to-top-btn" type="button" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- Theme and Custom JavaScript -->
+  <script src="main.js?v=6"></script>
+</body>
+
+</html>
