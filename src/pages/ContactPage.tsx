@@ -299,7 +299,7 @@ export const ContactPage: React.FC = () => {
                   className="btn btn-primary btn-block"
                   disabled={status === 'submitting'}
                 >
-                  {status === 'submitting' ? 'Submitting Inquiry...' : 'Submit Inquiry &rarr;'}
+                  {status === 'submitting' ? 'Submitting Inquiry...' : 'Submit Inquiry →'}
                 </button>
               </form>
             </div>
