@@ -6,6 +6,7 @@ import { ParticleMeshCanvas } from '../components/motion/ParticleMeshCanvas';
 import { MotionReveal } from '../components/motion/MotionReveal';
 import { CardSpotlight } from '../components/motion/CardSpotlight';
 import { LaserFlowBeam } from '../components/motion/LaserFlowBeam';
+import { Global3DNetworkGlobe } from '../components/motion/Global3DNetworkGlobe';
 
 export const AboutPage: React.FC = () => {
   return (
@@ -323,6 +324,33 @@ export const AboutPage: React.FC = () => {
               </CardSpotlight>
             </MotionReveal>
           </div>
+        </div>
+      </section>
+
+      {/* 3D Global Delivery & Australian Operations Nexus */}
+      <section className="global-network-section" style={{ padding: '60px 0 30px', position: 'relative' }}>
+        <div className="section-container">
+          <MotionReveal direction="up" className="section-head center">
+            <div className="custom-badge">
+              <span className="badge-icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" className="badge-svg">
+                  <path d="M3 3 L21 12 L8 12 L3 9 Z" fill="#00a2ff" />
+                  <path d="M3 21 L21 12 L8 12 L3 15 Z" fill="#0062d6" />
+                </svg>
+              </span>
+              <span className="badge-text">Interactive 3D Operations</span>
+            </div>
+            <h2 className="section-title">
+              Australian Headquarters. <span className="text-gradient">Connected Global Mesh.</span>
+            </h2>
+            <p className="section-subtitle">
+              Engineered out of Cranbourne, Melbourne with secure API delivery pipelines active across Australian capitals and global financial centers. Drag to rotate in real time.
+            </p>
+          </MotionReveal>
+
+          <MotionReveal direction="up" delay={0.15}>
+            <Global3DNetworkGlobe height={440} />
+          </MotionReveal>
         </div>
       </section>
 

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { WordRotator } from '../components/WordRotator';
-import { HeroPipeline } from '../components/HeroPipeline';
+import { HeroVisualSwitcher } from '../components/HeroVisualSwitcher';
+import { SaaS3DPerspectiveConsole } from '../components/motion/SaaS3DPerspectiveConsole';
 import { HomeServicesSection } from '../components/HomeServicesSection';
 import { WorkflowShowcase } from '../components/WorkflowShowcase';
 import { DiagnosisSection } from '../components/DiagnosisSection';
@@ -178,9 +179,9 @@ export const HomePage: React.FC = () => {
                 </MotionReveal>
               </div>
 
-              {/* Hero visual: interactive pipeline */}
+              {/* Hero visual: interactive 3D WebGL nexus & pipeline switcher */}
               <div className="hero-visual">
-                <HeroPipeline />
+                <HeroVisualSwitcher />
               </div>
             </div>
           </div>
@@ -285,6 +286,33 @@ export const HomePage: React.FC = () => {
 
           <MotionReveal direction="up" delay={0.15}>
             <EngineCoreMotion />
+          </MotionReveal>
+        </div>
+      </section>
+
+      {/* Interactive 3D SaaS Automation Console */}
+      <section className="saas-3d-console-section" id="spatial-console" style={{ position: 'relative', padding: '50px 0 30px' }}>
+        <div className="section-container">
+          <MotionReveal direction="up" className="section-head center">
+            <div className="custom-badge">
+              <span className="badge-icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" className="badge-svg">
+                  <path d="M3 3 L21 12 L8 12 L3 9 Z" fill="#00a2ff" />
+                  <path d="M3 21 L21 12 L8 12 L3 15 Z" fill="#0062d6" />
+                </svg>
+              </span>
+              <span className="badge-text">Spatial 3D SaaS Console</span>
+            </div>
+            <h2 className="section-title">
+              Autonomous Orchestration. <span className="text-gradient">Spatial Depth.</span>
+            </h2>
+            <p className="section-subtitle">
+              Move your cursor across the console to experience real-time spatial depth, live transaction logs, and ledger verification metrics.
+            </p>
+          </MotionReveal>
+
+          <MotionReveal direction="up" delay={0.15}>
+            <SaaS3DPerspectiveConsole />
           </MotionReveal>
         </div>
       </section>
