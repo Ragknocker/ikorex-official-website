@@ -3921,16 +3921,10 @@ body.dark-theme .premium-team-card:hover {
   overflow: hidden;
 }
 
-.contact-form-card::before {
-  content: "";
-  position: absolute;
-  top: -150px;
-  right: -150px;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, rgba(0, 180, 255, 0.08) 0%, transparent 70%);
-  z-index: 1;
-  pointer-events: none;
+.contact-form-card::before,
+.contact-form-card::after {
+  display: none !important;
+  content: none !important;
 }
 
 .contact-form {
@@ -6529,7 +6523,6 @@ body::after {
 .founders-panel::before,
 .founders-widget-card::before,
 .contact-info-card::before,
-.contact-form-card::before,
 .map-container::before,
 .blog-card::before,
 .trust-bar::before,
@@ -6565,7 +6558,6 @@ body::after {
 .founders-panel:hover::before,
 .founders-widget-card:hover::before,
 .contact-info-card:hover::before,
-.contact-form-card:hover::before,
 .map-container:hover::before,
 .blog-card:hover::before,
 .trust-bar:hover::before,
@@ -6588,7 +6580,6 @@ body::after {
 .premium-value-card::after,
 .founders-panel::after,
 .contact-info-card::after,
-.contact-form-card::after,
 .blog-card::after,
 .trust-bar::after,
 .value-row::after,
@@ -10268,6 +10259,8 @@ body.dark-theme .insight-figures strong {
   content: '';
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
   border-radius: inherit;
   background: radial-gradient(
     500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),

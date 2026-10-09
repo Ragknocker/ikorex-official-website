@@ -163,7 +163,7 @@ export const ContactPage: React.FC = () => {
             </div>
 
             {/* Right Column: Interactive Form */}
-            <div className="contact-form-card card-spotlight">
+            <div className="contact-form-card">
               {status === 'success' && (
                 <div className="form-notification success" role="status">
                   <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.5">
