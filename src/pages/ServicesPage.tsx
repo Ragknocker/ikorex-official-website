@@ -140,7 +140,7 @@ export const ServicesPage: React.FC = () => {
               <CardSpotlight className="engine-card" enableTilt={true}>
                 <div className="engine-card-media">
                   <img
-                    src="/assets/images/services-accounting.webp"
+                    src="/assets/images/services-financial-reporting.webp"
                     alt="Accounting, Bookkeeping & Reporting"
                     className="engine-media-element"
                     loading="lazy"
