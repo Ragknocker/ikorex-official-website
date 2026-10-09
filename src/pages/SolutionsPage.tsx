@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { solutionsList } from '../data/solutionsData';
 import { CtaSection } from '../components/CtaSection';
@@ -8,12 +8,33 @@ import { CardSpotlight } from '../components/motion/CardSpotlight';
 import { LaserFlowBeam } from '../components/motion/LaserFlowBeam';
 
 export const SolutionsPage: React.FC = () => {
+  const [activeId, setActiveId] = useState<string>('o2c');
+
   const scrollToSolution = (id: string) => {
+    setActiveId(id);
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const ids = ['o2c', 'p2p', 'loss-prevention', 'finance'];
+      const scrollPos = window.scrollY + 220;
+
+      for (let i = ids.length - 1; i >= 0; i--) {
+        const el = document.getElementById(ids[i]);
+        if (el && el.offsetTop <= scrollPos) {
+          setActiveId(ids[i]);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <div className="solutions-page-container">
@@ -45,28 +66,28 @@ export const SolutionsPage: React.FC = () => {
             <nav className="segmented-nav" aria-label="Jump to solution">
               <button
                 type="button"
-                className="segmented-btn"
+                className={`segmented-btn ${activeId === 'o2c' ? 'active' : ''}`}
                 onClick={() => scrollToSolution('o2c')}
               >
                 Order to Cash
               </button>
               <button
                 type="button"
-                className="segmented-btn"
+                className={`segmented-btn ${activeId === 'p2p' ? 'active' : ''}`}
                 onClick={() => scrollToSolution('p2p')}
               >
                 Procure to Pay
               </button>
               <button
                 type="button"
-                className="segmented-btn"
+                className={`segmented-btn ${activeId === 'loss-prevention' ? 'active' : ''}`}
                 onClick={() => scrollToSolution('loss-prevention')}
               >
                 Loss Prevention
               </button>
               <button
                 type="button"
-                className="segmented-btn"
+                className={`segmented-btn ${activeId === 'finance' ? 'active' : ''}`}
                 onClick={() => scrollToSolution('finance')}
               >
                 Finance &amp; Accounting

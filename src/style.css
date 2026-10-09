@@ -7242,29 +7242,48 @@ body.dark-theme .trust-stat strong {
   z-index: 50;
 }
 
-.segmented-nav a {
-  padding: 8px 16px;
+.segmented-nav a,
+.segmented-nav button,
+.segmented-btn {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  padding: 8px 18px;
   border-radius: 999px;
   font-size: 0.86rem;
   font-weight: 500;
   color: var(--text-muted);
-  transition: color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
 }
 
-.segmented-nav a:hover {
+.segmented-nav a:hover,
+.segmented-nav button:hover,
+.segmented-btn:hover {
   color: var(--text-main);
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
-.segmented-nav a.active {
+.segmented-nav a.active,
+.segmented-nav button.active,
+.segmented-btn.active {
   color: var(--accent-orange);
   background-color: var(--glass-bg-strong);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 2px 8px -2px rgba(10, 40, 90, 0.2);
 }
 
-body.dark-theme .segmented-nav a.active {
+body.dark-theme .segmented-nav a.active,
+body.dark-theme .segmented-nav button.active,
+body.dark-theme .segmented-btn.active {
   color: #5cc8ff;
-  background-color: rgba(255, 255, 255, 0.08);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 2px 10px -2px rgba(0, 180, 255, 0.25);
 }
 
 .solution-horizontal-card {
@@ -7702,7 +7721,11 @@ body.dark-theme .tab-indicator {
 }
 
 .segmented-nav.has-indicator > a.active,
-.segmented-nav.has-indicator > a:hover {
+.segmented-nav.has-indicator > a:hover,
+.segmented-nav.has-indicator > button.active,
+.segmented-nav.has-indicator > button:hover,
+.segmented-nav.has-indicator > .segmented-btn.active,
+.segmented-nav.has-indicator > .segmented-btn:hover {
   background-color: transparent;
   box-shadow: none;
 }
@@ -9425,7 +9448,9 @@ body.dark-theme .insight-figures strong {
     display: none;
   }
 
-  .segmented-nav a {
+  .segmented-nav a,
+  .segmented-nav button,
+  .segmented-btn {
     white-space: nowrap;
   }
 
