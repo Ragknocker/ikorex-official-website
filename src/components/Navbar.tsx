@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
+import { useAuth } from '../context/AuthContext';
 
 export const Navbar: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
+  const { user, isAuthenticated } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [melbourneTime, setMelbourneTime] = useState<string>('--:-- AEST');
@@ -71,19 +73,11 @@ export const Navbar: React.FC = () => {
           aria-label="Primary"
         >
           <NavLink
-            to="/"
-            end
+            to="/features"
             className={({ isActive }) => (isActive ? 'active' : '')}
             onClick={() => setMobileMenuOpen(false)}
           >
-            Home
-          </NavLink>
-          <NavLink
-            to="/services"
-            className={({ isActive }) => (isActive ? 'active' : '')}
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Services
+            Features
           </NavLink>
           <NavLink
             to="/solutions"
@@ -93,11 +87,18 @@ export const Navbar: React.FC = () => {
             Solutions
           </NavLink>
           <NavLink
+            to="/pricing"
+            className={({ isActive }) => (isActive ? 'active' : '')}
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Pricing
+          </NavLink>
+          <NavLink
             to="/blog"
             className={({ isActive }) => (isActive ? 'active' : '')}
             onClick={() => setMobileMenuOpen(false)}
           >
-            Blog
+            Resources
           </NavLink>
           <NavLink
             to="/about"
@@ -115,13 +116,32 @@ export const Navbar: React.FC = () => {
           </NavLink>
 
           <div className="mobile-cta">
-            <Link
-              to="/contact"
-              className="btn btn-primary btn-sm"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Book a Consultation
-            </Link>
+            {isAuthenticated ? (
+              <Link
+                to="/dashboard"
+                className="btn btn-primary btn-sm"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Go to Dashboard &rarr;
+              </Link>
+            ) : (
+              <>
+                <Link
+                  to="/login"
+                  className="btn btn-outline btn-sm"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Sign In
+                </Link>
+                <Link
+                  to="/signup"
+                  className="btn btn-primary btn-sm"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Get Started Free
+                </Link>
+              </>
+            )}
           </div>
         </nav>
 
@@ -175,9 +195,20 @@ export const Navbar: React.FC = () => {
             </svg>
           </button>
 
-          <Link to="/contact" className="btn btn-primary btn-sm">
-            Book a Consultation
-          </Link>
+          {isAuthenticated ? (
+            <Link to="/dashboard" className="btn-get-started">
+              Dashboard &rarr;
+            </Link>
+          ) : (
+            <>
+              <Link to="/login" className="btn-sign-in">
+                Sign In
+              </Link>
+              <Link to="/signup" className="btn-get-started">
+                Get Started Free
+              </Link>
+            </>
+          )}
         </div>
 
         {/* Mobile menu trigger */}

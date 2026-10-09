@@ -96,17 +96,18 @@ export const Footer: React.FC = () => {
         </div>
         <div className="footer-links">
           <div className="link-group">
-            <h4>Explore</h4>
-            <Link to="/services">Services</Link>
+            <h4>Product</h4>
+            <Link to="/features">Features</Link>
             <Link to="/solutions">Solutions</Link>
-            <Link to="/blog">Blog</Link>
-            <Link to="/about">About Us</Link>
+            <Link to="/pricing">Pricing &amp; Plans</Link>
+            <Link to="/dashboard">App Dashboard</Link>
           </div>
           <div className="link-group">
-            <h4>Company</h4>
-            <Link to="/contact">Book a Consultation</Link>
-            <Link to="/contact">Contact &amp; Support</Link>
-            <Link to="/privacy">Privacy Policy</Link>
+            <h4>Resources</h4>
+            <Link to="/blog">Blog &amp; Insights</Link>
+            <Link to="/about">About iKOREX</Link>
+            <Link to="/contact">Support &amp; Sales</Link>
+            <Link to="/privacy">Privacy &amp; Terms</Link>
           </div>
           <div className="link-group">
             <h4>Get in Touch</h4>

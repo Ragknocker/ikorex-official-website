@@ -4,6 +4,7 @@ import App from './App';
 import './style.css';
 import './styles/motion.css';
 import './styles/saas-3d.css';
+import './styles/saas-design-system.css';
 
 const rootElement = document.getElementById('root');
 if (rootElement) {

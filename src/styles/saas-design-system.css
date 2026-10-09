@@ -1,0 +1,726 @@
+/* ==============================================================================
+   iKOREX PREMIUM SAAS DESIGN SYSTEM
+   Linear / Stripe / Vercel Aesthetic Design Tokens & Components
+   ============================================================================== */
+
+:root {
+  /* Core Design Tokens */
+  --saas-primary: #0088ff;
+  --saas-primary-hover: #0066ee;
+  --saas-primary-rgb: 0, 136, 255;
+  --saas-accent-cyan: #00f0ff;
+  --saas-accent-indigo: #6366f1;
+  --saas-accent-emerald: #10b981;
+  --saas-accent-amber: #f59e0b;
+  --saas-accent-rose: #f43f5e;
+
+  /* Elevation Shadows */
+  --saas-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --saas-shadow-md: 0 4px 14px -2px rgba(0, 0, 0, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.04);
+  --saas-shadow-lg: 0 12px 32px -4px rgba(0, 0, 0, 0.12), 0 4px 12px -2px rgba(0, 0, 0, 0.06);
+  --saas-shadow-glow: 0 0 35px -5px rgba(0, 136, 255, 0.25);
+  --saas-shadow-inner: inset 0 1px 1px 0 rgba(255, 255, 255, 0.1);
+
+  /* Dashboard Neutral Surfaces */
+  --dash-bg: #0b0e14;
+  --dash-sidebar-bg: #080a0f;
+  --dash-card-bg: rgba(16, 22, 34, 0.7);
+  --dash-card-border: rgba(255, 255, 255, 0.08);
+  --dash-card-border-hover: rgba(0, 136, 255, 0.35);
+  --dash-header-bg: rgba(11, 14, 20, 0.85);
+  --dash-text-main: #f8fafc;
+  --dash-text-muted: #94a3b8;
+  --dash-text-subtle: #64748b;
+  --dash-input-bg: rgba(15, 23, 42, 0.6);
+  --dash-input-border: rgba(255, 255, 255, 0.12);
+}
+
+/* Light theme overrides for dashboard */
+body:not(.dark-theme) {
+  --dash-bg: #f8fafc;
+  --dash-sidebar-bg: #f1f5f9;
+  --dash-card-bg: rgba(255, 255, 255, 0.9);
+  --dash-card-border: rgba(0, 0, 0, 0.08);
+  --dash-card-border-hover: rgba(0, 136, 255, 0.4);
+  --dash-header-bg: rgba(248, 250, 252, 0.88);
+  --dash-text-main: #0f172a;
+  --dash-text-muted: #475569;
+  --dash-text-subtle: #94a3b8;
+  --dash-input-bg: #ffffff;
+  --dash-input-border: #cbd5e1;
+}
+
+/* ==============================================================================
+   REUSABLE UTILITIES & BADGES
+   ============================================================================== */
+
+.saas-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  background: rgba(0, 136, 255, 0.08);
+  border: 1px solid rgba(0, 136, 255, 0.2);
+  color: var(--saas-primary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+}
+
+.saas-dot-pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--saas-accent-emerald);
+  box-shadow: 0 0 10px var(--saas-accent-emerald);
+  animation: saasPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes saasPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.saas-gradient-text {
+  background: linear-gradient(135deg, #00b4ff 0%, #0066ee 50%, #6366f1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* ==============================================================================
+   AUTHENTICATED DASHBOARD APPLICATION SHELL
+   ============================================================================== */
+
+.saas-dashboard-app {
+  display: flex;
+  min-height: 100vh;
+  background: var(--dash-bg);
+  color: var(--dash-text-main);
+  font-family: var(--font-sans);
+  position: relative;
+}
+
+/* Sidebar */
+.dash-sidebar {
+  width: 270px;
+  background: var(--dash-sidebar-bg);
+  border-right: 1px solid var(--dash-card-border);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), width 0.25s ease;
+}
+
+.dash-sidebar.collapsed {
+  width: 78px;
+}
+
+.dash-sidebar-header {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  border-bottom: 1px solid var(--dash-card-border);
+}
+
+.dash-sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--dash-text-main);
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+}
+
+.dash-sidebar-logo img {
+  height: 28px;
+  width: auto;
+}
+
+/* Workspace Switcher */
+.dash-workspace-box {
+  margin: 16px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--dash-card-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dash-workspace-box:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: var(--dash-card-border-hover);
+}
+
+.dash-workspace-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.dash-workspace-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #0088ff, #6366f1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+/* Nav Menu */
+.dash-nav-menu {
+  flex: 1;
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow-y: auto;
+}
+
+.dash-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: var(--dash-text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.15s ease;
+}
+
+.dash-nav-item:hover {
+  color: var(--dash-text-main);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.dash-nav-item.active {
+  color: #fff;
+  background: var(--saas-primary);
+  box-shadow: 0 4px 12px rgba(0, 136, 255, 0.3);
+}
+
+.dash-nav-badge {
+  margin-left: auto;
+  padding: 2px 7px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+/* Sidebar Footer */
+.dash-sidebar-footer {
+  padding: 16px;
+  border-top: 1px solid var(--dash-card-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dash-user-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--dash-text-main);
+}
+
+.dash-user-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #3b82f6;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+/* Main Workspace */
+.dash-main-content {
+  flex: 1;
+  margin-left: 270px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  transition: margin-left 0.25s ease;
+}
+
+.saas-dashboard-app.sidebar-collapsed .dash-main-content {
+  margin-left: 78px;
+}
+
+/* Dashboard Topbar */
+.dash-topbar {
+  height: 72px;
+  background: var(--dash-header-bg);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--dash-card-border);
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+}
+
+.dash-search-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--dash-input-bg);
+  border: 1px solid var(--dash-input-border);
+  border-radius: 8px;
+  padding: 8px 14px;
+  width: 320px;
+  font-size: 0.88rem;
+  color: var(--dash-text-muted);
+}
+
+.dash-search-box input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--dash-text-main);
+  width: 100%;
+  font-size: 0.88rem;
+}
+
+.dash-kbd {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  color: var(--dash-text-subtle);
+}
+
+.dash-topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Dashboard Body Viewport */
+.dash-viewport {
+  flex: 1;
+  padding: 32px;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.dash-page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.dash-page-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.dash-page-subtitle {
+  font-size: 0.92rem;
+  color: var(--dash-text-muted);
+  margin-top: 4px;
+}
+
+/* KPI Metric Cards Grid */
+.dash-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.dash-metric-card {
+  background: var(--dash-card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--dash-card-border);
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: var(--saas-shadow-sm);
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.dash-metric-card:hover {
+  border-color: var(--dash-card-border-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--saas-shadow-md);
+}
+
+.dash-metric-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.dash-metric-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--dash-text-muted);
+}
+
+.dash-metric-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 136, 255, 0.1);
+  color: var(--saas-primary);
+}
+
+.dash-metric-value {
+  font-size: 1.85rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--dash-text-main);
+  margin-bottom: 8px;
+}
+
+.dash-metric-trend {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.dash-trend-up {
+  color: var(--saas-accent-emerald);
+}
+
+.dash-trend-neutral {
+  color: var(--saas-accent-cyan);
+}
+
+/* Generic Glass Panel */
+.dash-panel {
+  background: var(--dash-card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--dash-card-border);
+  border-radius: 14px;
+  padding: 24px;
+  margin-bottom: 30px;
+  box-shadow: var(--saas-shadow-sm);
+}
+
+.dash-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.dash-panel-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+/* Data Tables */
+.dash-table-wrapper {
+  overflow-x: auto;
+}
+
+.dash-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.88rem;
+}
+
+.dash-table th {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--dash-text-subtle);
+  border-bottom: 1px solid var(--dash-card-border);
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.dash-table td {
+  padding: 16px;
+  border-bottom: 1px solid var(--dash-card-border);
+  color: var(--dash-text-main);
+  vertical-align: middle;
+}
+
+.dash-table tbody tr {
+  transition: background 0.15s ease;
+}
+
+.dash-table tbody tr:hover {
+  background: rgba(0, 136, 255, 0.03);
+}
+
+/* Status Badges */
+.dash-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+.dash-status-active {
+  background: rgba(16, 185, 129, 0.12);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.dash-status-running {
+  background: rgba(0, 136, 255, 0.12);
+  color: #0088ff;
+  border: 1px solid rgba(0, 136, 255, 0.25);
+}
+
+.dash-status-queued {
+  background: rgba(245, 158, 11, 0.12);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.dash-status-error {
+  background: rgba(244, 63, 94, 0.12);
+  color: #f43f5e;
+  border: 1px solid rgba(244, 63, 94, 0.25);
+}
+
+/* ==============================================================================
+   TOAST NOTIFICATION COMPONENT
+   ============================================================================== */
+
+.saas-toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.saas-toast {
+  pointer-events: auto;
+  min-width: 300px;
+  max-width: 420px;
+  background: #0f172a;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 136, 255, 0.2);
+  border-radius: 10px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.88rem;
+  animation: toastSlideIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes toastSlideIn {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* ==============================================================================
+   RESPONSIVE MEDIA QUERIES
+   ============================================================================== */
+
+@media (max-width: 1024px) {
+  .dash-sidebar {
+    transform: translateX(-100%);
+  }
+  .dash-sidebar.mobile-open {
+    transform: translateX(0);
+  }
+  .dash-main-content {
+    margin-left: 0 !important;
+  }
+  .dash-topbar {
+    padding: 0 16px;
+  }
+  .dash-viewport {
+    padding: 20px 16px;
+  }
+}
+
+/* ==============================================================================
+   PREMIUM NAVBAR STYLING & SQUISH PREVENTION
+   ============================================================================== */
+
+/* Ensure the navbar pill has proper flex alignment and no content clipping */
+.navbar {
+  height: 64px !important;
+}
+
+.navbar-container {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
+  width: 100% !important;
+}
+
+.navbar .logo {
+  display: flex !important;
+  align-items: center !important;
+  flex-shrink: 0 !important;
+}
+
+.navbar .logo-img {
+  height: 38px !important;
+  width: auto !important;
+  margin: 0 !important;
+}
+
+/* Nav links: clean spacing and nowrap */
+.navbar .nav-links {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1.25rem !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+.navbar .nav-links a {
+  white-space: nowrap !important;
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.navbar .nav-links a:hover,
+.navbar .nav-links a.active {
+  color: var(--text-main) !important;
+}
+
+/* Strictly hide mobile-cta on desktop viewports */
+@media (min-width: 769px) {
+  .mobile-cta {
+    display: none !important;
+  }
+}
+
+/* Desktop Action Area */
+.nav-cta {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  flex-shrink: 0 !important;
+}
+
+.nav-cta .live-clock-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  padding: 4px 10px !important;
+  border-radius: 999px !important;
+  background: rgba(0, 136, 255, 0.06) !important;
+  border: 1px solid var(--border-color) !important;
+  font-size: 0.76rem !important;
+  font-family: var(--font-mono) !important;
+  color: var(--text-muted) !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+}
+
+.nav-cta .btn-sign-in {
+  color: var(--text-main) !important;
+  font-weight: 600 !important;
+  font-size: 0.86rem !important;
+  padding: 6px 12px !important;
+  border-radius: 8px !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  transition: background 0.2s ease, color 0.2s ease !important;
+}
+
+.nav-cta .btn-sign-in:hover {
+  background: rgba(255, 255, 255, 0.06) !important;
+  color: #0088ff !important;
+}
+
+.nav-cta .btn-get-started {
+  background: linear-gradient(135deg, #0088ff 0%, #0066ee 100%) !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  font-size: 0.86rem !important;
+  padding: 8px 18px !important;
+  border-radius: 9999px !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-decoration: none !important;
+  box-shadow: 0 4px 14px rgba(0, 136, 255, 0.3) !important;
+  border: none !important;
+  transition: all 0.2s ease !important;
+}
+
+.nav-cta .btn-get-started:hover {
+  filter: brightness(1.1) !important;
+  box-shadow: 0 6px 20px rgba(0, 136, 255, 0.45) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Global Button protection against text wrapping / squishing */
+.btn {
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+}
