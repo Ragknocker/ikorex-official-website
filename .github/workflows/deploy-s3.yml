@@ -25,7 +25,31 @@ jobs:
       - name: Build Project
         run: npm run build
 
+      - name: Verify AWS Deployment Configuration
+        id: check_aws
+        env:
+          AWS_KEY: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          S3_BUCKET: ${{ secrets.S3_BUCKET }}
+          CF_DIST: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
+        run: |
+          if [ -n "$AWS_KEY" ] && [ -n "$AWS_SECRET" ] && [ -n "$AWS_REGION" ] && [ -n "$S3_BUCKET" ]; then
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+            echo "AWS deployment credentials detected. Proceeding to S3 sync."
+          else
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "::notice title=Deployment Skipped::AWS deployment secrets (AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_REGION, S3_BUCKET) are not configured in this repository. Build verification succeeded!"
+          fi
+
+          if [ -n "$CF_DIST" ]; then
+            echo "has_cloudfront=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_cloudfront=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Configure AWS Credentials
+        if: steps.check_aws.outputs.configured == 'true'
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -33,11 +57,13 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Sync Files to S3
+        if: steps.check_aws.outputs.configured == 'true'
         run: |
           aws s3 sync dist/ s3://${{ secrets.S3_BUCKET }} \
             --delete
 
       - name: Invalidate CloudFront Cache
+        if: steps.check_aws.outputs.configured == 'true' && steps.check_aws.outputs.has_cloudfront == 'true'
         uses: chetan/invalidate-cloudfront-action@v2
         env:
           DISTRIBUTION: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
@@ -48,6 +74,7 @@ jobs:
         continue-on-error: true
 
       - name: Fallback Invalidate CloudFront Cache via AWS CLI
+        if: steps.check_aws.outputs.configured == 'true' && steps.check_aws.outputs.has_cloudfront == 'true'
         run: |
           aws cloudfront create-invalidation \
             --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
